@@ -1,0 +1,20 @@
+{
+  "name": "react-native-firebase",
+  "version": "0.1.0",
+  "description": "React Native wrapper for Firebase",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "react-native",
+    "react-component"
+  ],
+  "author": "Mike Lambert <mlambert@gmail.com>",
+  "repository": "https://github.com/mikelambert/react-native-firebase",
+  "bugs": "https://github.com/mikelambert/react-native-firebase/issues",
+  "peerDependencies": {
+    "react-native": ">=0.13"
+  }
+}
