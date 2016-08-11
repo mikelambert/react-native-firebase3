@@ -8,42 +8,53 @@ RCT_EXPORT_MODULE();
 
 - (dispatch_queue_t)methodQueue
 {
-  return dispatch_get_main_queue();
+    return dispatch_get_main_queue();
 }
+
+RCT_EXPORT_METHOD(setDeveloperMode)
+{
+    FIRRemoteConfig *remoteConfig = [FIRRemoteConfig remoteConfig];
+    FIRRemoteConfigSettings *remoteConfigSettings = [[FIRRemoteConfigSettings alloc] initWithDeveloperModeEnabled:YES];
+    remoteConfig.configSettings = remoteConfigSettings;
+}
+
 
 RCT_EXPORT_METHOD(activateFetched:(NSString *)message
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
 {
-  resolve([[FIRRemoteConfig remoteConfig] activateFetched]);
+    resolve([NSNumber numberWithBool:[[FIRRemoteConfig remoteConfig] activateFetched]]);
 }
 
-RCT_EXPORT_METHOD(fetch,
-                  resolver:(RCTPromiseResolveBlock)resolve
-                  rejecter:(RCTPromiseRejectBlock)reject)
+RCT_REMAP_METHOD(fetch,
+                 resolver:(RCTPromiseResolveBlock)resolve
+                 rejecter:(RCTPromiseRejectBlock)reject)
 {
-  [[FIRRemoteConfig remoteConfig] fetchWithCompletionHandler:^(FIRRemoteConfigFetchStatus status, NSError *error) {
-    if (status == FIRRemoteConfigFetchStatusSuccess) {
-      resolve();
-    } else {
-      reject(error);
-    }
-  }];
+    [[FIRRemoteConfig remoteConfig] fetchWithCompletionHandler:^(FIRRemoteConfigFetchStatus status, NSError *error) {
+        if (status == FIRRemoteConfigFetchStatusSuccess) {
+            resolve([NSNull null]);
+        } else {
+            reject(@"firebase_fetch_failure",
+                   [NSString stringWithFormat: @"Failed to fetch firebase remote config: %@", status],
+                   error);
+        }
+    }];
 }
 
 RCT_EXPORT_METHOD(fetchWithExpirationDuration: (long)cacheExpirationSeconds
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
 {
-  [[FIRRemoteConfig remoteConfig] fetchWithExpirationDuration: cacheExpirationSeconds,
-    completionHandler:^(FIRRemoteConfigFetchStatus status, NSError *error) {
-      if (status == FIRRemoteConfigFetchStatusSuccess) {
-        resolve();
-      } else {
-        reject(error);
-      }
-    }
-  ];
+    [[FIRRemoteConfig remoteConfig] fetchWithExpirationDuration: cacheExpirationSeconds
+                                              completionHandler:^(FIRRemoteConfigFetchStatus status, NSError *error) {
+        if (status == FIRRemoteConfigFetchStatusSuccess) {
+            resolve([NSNull null]);
+        } else {
+            reject(@"firebase_fetch_failure",
+                   [NSString stringWithFormat: @"Failed to fetch firebase remote config: %@", status],
+                   error);
+        }
+    }];
 }
 
 
@@ -52,16 +63,16 @@ RCT_EXPORT_METHOD(getBoolean: (NSString *)key
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
 {
-  FIRRemoteConfigValue *configValue = [[FIRRemoteConfig remoteConfig] configValueForKey:key namespace:namespace];
-  resolve([configValue.boolValue]);
+    FIRRemoteConfigValue *configValue = [[FIRRemoteConfig remoteConfig] configValueForKey:key namespace:namespace];
+    resolve([NSNumber numberWithBool:[configValue boolValue]]);
 }
 
 RCT_EXPORT_METHOD(getBoolean: (NSString *)key
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
 {
-  FIRRemoteConfigValue *configValue = [[FIRRemoteConfig remoteConfig] configValueForKey:key];
-  resolve([configValue.boolValue]);
+    FIRRemoteConfigValue *configValue = [[FIRRemoteConfig remoteConfig] configValueForKey:key];
+    resolve([NSNumber numberWithBool:[configValue boolValue]]);
 }
 
 RCT_EXPORT_METHOD(getDouble: (NSString *)key
@@ -69,16 +80,16 @@ RCT_EXPORT_METHOD(getDouble: (NSString *)key
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
 {
-  FIRRemoteConfigValue *configValue = [[FIRRemoteConfig remoteConfig] configValueForKey:key namespace:namespace];
-  resolve([configValue.numberValue]);
+    FIRRemoteConfigValue *configValue = [[FIRRemoteConfig remoteConfig] configValueForKey:key namespace:namespace];
+    resolve([configValue numberValue]);
 }
 
 RCT_EXPORT_METHOD(getDouble: (NSString *)key
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
 {
-  FIRRemoteConfigValue *configValue = [[FIRRemoteConfig remoteConfig] configValueForKey:key];
-  resolve([configValue.numberValue]);
+    FIRRemoteConfigValue *configValue = [[FIRRemoteConfig remoteConfig] configValueForKey:key];
+    resolve([configValue numberValue]);
 }
 
 RCT_EXPORT_METHOD(getLong: (NSString *)key
@@ -86,16 +97,16 @@ RCT_EXPORT_METHOD(getLong: (NSString *)key
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
 {
-  FIRRemoteConfigValue *configValue = [[FIRRemoteConfig remoteConfig] configValueForKey:key namespace:namespace];
-  resolve([configValue.numberValue]);
+    FIRRemoteConfigValue *configValue = [[FIRRemoteConfig remoteConfig] configValueForKey:key namespace:namespace];
+    resolve([configValue numberValue]);
 }
 
 RCT_EXPORT_METHOD(getLong: (NSString *)key
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
 {
-  FIRRemoteConfigValue *configValue = [[FIRRemoteConfig remoteConfig] configValueForKey:key];
-  resolve([configValue.numberValue]);
+    FIRRemoteConfigValue *configValue = [[FIRRemoteConfig remoteConfig] configValueForKey:key];
+    resolve([configValue numberValue]);
 }
 
 
@@ -104,16 +115,16 @@ RCT_EXPORT_METHOD(getString: (NSString *)key
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
 {
-  FIRRemoteConfigValue *configValue = [[FIRRemoteConfig remoteConfig] configValueForKey:key namespace:namespace];
-  resolve([configValue.stringValue]);
+    FIRRemoteConfigValue *configValue = [[FIRRemoteConfig remoteConfig] configValueForKey:key namespace:namespace];
+    resolve([configValue stringValue]);
 }
 
 RCT_EXPORT_METHOD(getString: (NSString *)key
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
 {
-  FIRRemoteConfigValue *configValue = [[FIRRemoteConfig remoteConfig] configValueForKey:key];
-  resolve([configValue.stringValue]);
+    FIRRemoteConfigValue *configValue = [[FIRRemoteConfig remoteConfig] configValueForKey:key];
+    resolve([configValue stringValue]);
 }
 
 
