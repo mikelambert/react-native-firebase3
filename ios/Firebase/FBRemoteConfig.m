@@ -19,16 +19,16 @@ RCT_EXPORT_METHOD(setDeveloperMode)
 }
 
 
-RCT_EXPORT_METHOD(activateFetched:(NSString *)message
-                  resolver:(RCTPromiseResolveBlock)resolve
-                  rejecter:(RCTPromiseRejectBlock)reject)
+RCT_REMAP_METHOD(activateFetched,
+                 activateResolver:(RCTPromiseResolveBlock)resolve
+                 activateRejecter:(RCTPromiseRejectBlock)reject)
 {
     resolve([NSNumber numberWithBool:[[FIRRemoteConfig remoteConfig] activateFetched]]);
 }
 
 RCT_REMAP_METHOD(fetch,
-                 resolver:(RCTPromiseResolveBlock)resolve
-                 rejecter:(RCTPromiseRejectBlock)reject)
+                 fetchResolver:(RCTPromiseResolveBlock)resolve
+                 fetchRejecter:(RCTPromiseRejectBlock)reject)
 {
     [[FIRRemoteConfig remoteConfig] fetchWithCompletionHandler:^(FIRRemoteConfigFetchStatus status, NSError *error) {
         if (status == FIRRemoteConfigFetchStatusSuccess) {
@@ -41,11 +41,11 @@ RCT_REMAP_METHOD(fetch,
     }];
 }
 
-RCT_EXPORT_METHOD(fetchWithExpirationDuration: (long)cacheExpirationSeconds
+RCT_EXPORT_METHOD(fetchWithExpirationDuration: (nonnull NSNumber *)cacheExpirationSeconds
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
 {
-    [[FIRRemoteConfig remoteConfig] fetchWithExpirationDuration: cacheExpirationSeconds
+    [[FIRRemoteConfig remoteConfig] fetchWithExpirationDuration: [cacheExpirationSeconds longValue]
                                               completionHandler:^(FIRRemoteConfigFetchStatus status, NSError *error) {
         if (status == FIRRemoteConfigFetchStatusSuccess) {
             resolve([NSNull null]);
