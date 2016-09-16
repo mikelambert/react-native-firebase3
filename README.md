@@ -6,7 +6,7 @@ Currently, it only includes support for Firebase RemoteConfig, with support for 
 
 If you are looking for a React Native wrapper for firebase2 API, you can find that in the react-native-firebase NPM module.
 
-## Usage:
+## RemoteConfig Usage:
 
     import { RemoteConfig } from 'react-native-firebase3';
 
@@ -14,11 +14,19 @@ If you are looking for a React Native wrapper for firebase2 API, you can find th
        blog: 'url',
     });
 
-    #ES7 async syntax...but you can pass use promises if you prefer instead.
+    #ES7 async syntax...but you can pass promises if you prefer instead.
     async function someFunction() {
         console.log('Blog URL is: ', await RemoteConfig.getString('blog'));
     }
     someFunction();
+
+## Analytics Usage:
+
+    import { Analytics } from 'react-native-firebase3';
+
+    Analytics.logEvent('Event Name', {
+       someProperty: 'someValue',
+    });
 
 
 ## iOS Installation
