@@ -51,7 +51,7 @@ RCT_EXPORT_METHOD(fetchWithExpirationDuration: (nonnull NSNumber *)cacheExpirati
             resolve([NSNull null]);
         } else {
             reject(@"firebase_fetch_failure",
-                   [NSString stringWithFormat: @"Failed to fetch firebase remote config: %@", status],
+                   [NSString stringWithFormat: @"Failed to fetch firebase remote config: %i", status],
                    error);
         }
     }];
@@ -110,7 +110,7 @@ RCT_EXPORT_METHOD(getLong: (NSString *)key
 }
 
 
-RCT_EXPORT_METHOD(getString: (NSString *)key
+RCT_EXPORT_METHOD(getNamedspacedString: (NSString *)key
                   withNamespace:(NSString *)namespace
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
@@ -126,7 +126,6 @@ RCT_EXPORT_METHOD(getString: (NSString *)key
     FIRRemoteConfigValue *configValue = [[FIRRemoteConfig remoteConfig] configValueForKey:key];
     resolve([configValue stringValue]);
 }
-
 
 RCT_EXPORT_METHOD(setNamespacedDefaults: (NSDictionary *)defaults
                   withNamespace:(NSString *)namespace)
