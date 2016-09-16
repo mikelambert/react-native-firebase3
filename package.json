@@ -1,6 +1,6 @@
 {
   "name": "react-native-firebase3",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "React Native wrapper for Firebase",
   "main": "index.js",
   "scripts": {
@@ -12,8 +12,8 @@
     "react-component"
   ],
   "author": "Mike Lambert <mlambert@gmail.com>",
-  "repository": "https://github.com/mikelambert/react-native-firebase",
-  "bugs": "https://github.com/mikelambert/react-native-firebase/issues",
+  "repository": "https://github.com/mikelambert/react-native-firebase3",
+  "bugs": "https://github.com/mikelambert/react-native-firebase3/issues",
   "peerDependencies": {
     "react-native": ">=0.13"
   }
