@@ -1,10 +1,16 @@
 /**
- * @providesModule Answers
+ * @providesModule Analytics
  */
 'use strict';
 
-var { NativeModules, Platform } = require('react-native');
+var { NativeModules } = require('react-native');
 var FBAnalytics = NativeModules.FBAnalytics;
 
-module.exports = FBAnalytics;
+function setUserProperties(properties) {
+  Object.keys(properties).forEach((key) => {
+    FBAnalytics.setUserProperty(key, properties[key]);
+  });
+}
+
+module.exports = {...FBAnalytics, setUserProperties};
 
