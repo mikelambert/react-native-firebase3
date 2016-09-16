@@ -34,5 +34,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.facebook.react:react-native:0.18.+'
+    compile 'com.facebook.react:react-native:+'
+    compile 'com.google.firebase:firebase-core:9.4.0+'
+    compile 'com.google.firebase:firebase-config:9.4.0+'
 }

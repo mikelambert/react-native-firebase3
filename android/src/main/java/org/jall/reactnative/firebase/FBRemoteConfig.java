@@ -1,11 +1,13 @@
 package org.jall.reactnative.firebase;
 
 import android.app.Activity;
-import android.util.Log;
 
+import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.bridge.ReadableMap;
+import com.facebook.react.bridge.ReadableNativeMap;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 
 public class FBRemoteConfig extends ReactContextBaseJavaModule {
