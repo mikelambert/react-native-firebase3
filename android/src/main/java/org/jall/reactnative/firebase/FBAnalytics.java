@@ -19,6 +19,7 @@ import com.crashlytics.android.answers.SearchEvent;
 import com.crashlytics.android.answers.ShareEvent;
 import com.crashlytics.android.answers.SignUpEvent;
 import com.crashlytics.android.answers.StartCheckoutEvent;
+import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
@@ -41,4 +42,36 @@ public class FBAnalytics extends ReactContextBaseJavaModule {
     public String getName() {
         return "FBAnalytics";
     }
+
+    @ReactMethod
+    public void logEvent(final ReadableMap eventName, final ReadableMap parameters) {
+        FirebaseAnalytics.getInstance().logEvent(name, Arguments.toBundle(parameters));
+    }
+
+    @ReactMethod
+    public void setUserId(String id) {
+        FirebaseAnalytics.getInstance().setUserId(id);
+    }
+
+    @ReactMethod
+    public void setUserProperty(String name, String value) {
+        FirebaseAnalytics.getInstance().setUserProperty(name, value);
+    }
+
+
+    @ReactMethod
+    public void setAnalyticsCollectionEnabled(boolean enabled) {
+        FirebaseAnalytics.getInstance().setAnalyticsCollectionEnabled(enabled);
+    }
+
+    @ReactMethod
+    public void setMinimumSessionDuration(double seconds) {
+        FirebaseAnalytics.getInstance().setMinimumSessionDuration((long)(seconds * 1000));
+    }
+
+    @ReactMethod
+    public void setSessionTimeoutDuration(double seconds) {
+        FirebaseAnalytics.getInstance().setSessionTimeoutDuration((long)(seconds * 1000));
+    }
+
 }
