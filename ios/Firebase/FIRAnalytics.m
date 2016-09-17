@@ -1,7 +1,7 @@
-#import "FBAnalytics.h"
+#import "FIRAnalytics.h"
 @import Firebase;
 
-@implementation FBAnalytics
+@implementation FIRAnalytics
 @synthesize bridge = _bridge;
 
 RCT_EXPORT_MODULE();

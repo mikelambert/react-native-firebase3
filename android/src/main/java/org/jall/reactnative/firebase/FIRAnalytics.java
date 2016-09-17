@@ -9,17 +9,17 @@ import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableMap;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
-public class FBAnalytics extends ReactContextBaseJavaModule {
+public class FIRAnalytics extends ReactContextBaseJavaModule {
     public Activity activity;
 
-    public FBAnalytics(ReactApplicationContext reactContext, Activity activity) {
+    public FIRAnalytics(ReactApplicationContext reactContext, Activity activity) {
         super(reactContext);
         this.activity = activity;
     }
 
     @Override
     public String getName() {
-        return "FBAnalytics";
+        return "FIRAnalytics";
     }
 
     @ReactMethod

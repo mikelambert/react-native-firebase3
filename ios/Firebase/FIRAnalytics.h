@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "RCTBridgeModule.h"
 
-@interface FBAnalytics : NSObject <RCTBridgeModule>
+@interface FIRAnalytics : NSObject <RCTBridgeModule>
 
 @end
 

@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D87A76C31C86A251004ABB23 /* FBAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = D87A76C01C86A251004ABB23 /* FBAnalytics.m */; };
-		D87A76C41C86A251004ABB23 /* FBRemoteConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = D87A76C21C86A251004ABB23 /* FBRemoteConfig.m */; };
+		D87A76C31C86A251004ABB23 /* FIRAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = D87A76C01C86A251004ABB23 /* FIRAnalytics.m */; };
+		D87A76C41C86A251004ABB23 /* FIRRemoteConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = D87A76C21C86A251004ABB23 /* FIRRemoteConfig.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,10 +24,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		D87A76BF1C86A251004ABB23 /* FBAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBAnalytics.h; path = Firebase/FBAnalytics.h; sourceTree = "<group>"; };
-		D87A76C01C86A251004ABB23 /* FBAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FBAnalytics.m; path = Firebase/FBAnalytics.m; sourceTree = "<group>"; };
-		D87A76C11C86A251004ABB23 /* FBRemoteConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBRemoteConfig.h; path = Firebase/FBRemoteConfig.h; sourceTree = "<group>"; };
-		D87A76C21C86A251004ABB23 /* FBRemoteConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FBRemoteConfig.m; path = Firebase/FBRemoteConfig.m; sourceTree = "<group>"; };
+		D87A76BF1C86A251004ABB23 /* FIRAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FIRAnalytics.h; path = Firebase/FIRAnalytics.h; sourceTree = "<group>"; };
+		D87A76C01C86A251004ABB23 /* FIRAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FIRAnalytics.m; path = Firebase/FIRAnalytics.m; sourceTree = "<group>"; };
+		D87A76C11C86A251004ABB23 /* FIRRemoteConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FIRRemoteConfig.h; path = Firebase/FIRRemoteConfig.h; sourceTree = "<group>"; };
+		D87A76C21C86A251004ABB23 /* FIRRemoteConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FIRRemoteConfig.m; path = Firebase/FIRRemoteConfig.m; sourceTree = "<group>"; };
 		D8D9DB831C6D03DB009FBC0E /* libFirebase.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFirebase.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -45,10 +45,10 @@
 		D8D9DB5B1C6D01F4009FBC0E = {
 			isa = PBXGroup;
 			children = (
-				D87A76BF1C86A251004ABB23 /* FBAnalytics.h */,
-				D87A76C01C86A251004ABB23 /* FBAnalytics.m */,
-				D87A76C11C86A251004ABB23 /* FBRemoteConfig.h */,
-				D87A76C21C86A251004ABB23 /* FBRemoteConfig.m */,
+				D87A76BF1C86A251004ABB23 /* FIRAnalytics.h */,
+				D87A76C01C86A251004ABB23 /* FIRAnalytics.m */,
+				D87A76C11C86A251004ABB23 /* FIRRemoteConfig.h */,
+				D87A76C21C86A251004ABB23 /* FIRRemoteConfig.m */,
 				D8D9DB661C6D01F4009FBC0E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -117,8 +117,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D87A76C41C86A251004ABB23 /* FBRemoteConfig.m in Sources */,
-				D87A76C31C86A251004ABB23 /* FBAnalytics.m in Sources */,
+				D87A76C41C86A251004ABB23 /* FIRRemoteConfig.m in Sources */,
+				D87A76C31C86A251004ABB23 /* FIRAnalytics.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

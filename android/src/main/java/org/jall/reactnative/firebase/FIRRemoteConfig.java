@@ -11,21 +11,22 @@ import com.facebook.react.bridge.ReadableMapKeySetIterator;
 import com.facebook.react.bridge.ReadableNativeArray;
 import com.facebook.react.bridge.ReadableNativeMap;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
+import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class FBRemoteConfig extends ReactContextBaseJavaModule {
+public class FIRRemoteConfig extends ReactContextBaseJavaModule {
     public Activity activity;
 
-    public FBRemoteConfig(ReactApplicationContext reactContext, Activity activity) {
+    public FIRRemoteConfig(ReactApplicationContext reactContext, Activity activity) {
         super(reactContext);
         this.activity = activity;
     }
 
     @Override
     public String getName() {
-        return "FBRemoteConfig";
+        return "FIRRemoteConfig";
     }
 
     @ReactMethod

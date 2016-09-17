@@ -22,8 +22,8 @@ public class FirebasePackage implements ReactPackage {
     public List<NativeModule> createNativeModules(
             ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
-        modules.add(new FBRemoteConfig(reactContext, mActivity));
-        modules.add(new FBAnalytics(reactContext, mActivity));
+        modules.add(new FIRRemoteConfig(reactContext, mActivity));
+        modules.add(new FIRAnalytics(reactContext, mActivity));
         return modules;
     }
 

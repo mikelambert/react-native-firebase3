@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "RCTBridgeModule.h"
 
-@interface FBRemoteConfig : NSObject <RCTBridgeModule>
+@interface FIRRemoteConfig : NSObject <RCTBridgeModule>
 
 @end

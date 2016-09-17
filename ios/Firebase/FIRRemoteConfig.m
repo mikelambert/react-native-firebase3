@@ -1,7 +1,7 @@
-#import "FBRemoteConfig.h"
+#import "FIRRemoteConfig.h"
 @import Firebase;
 
-@implementation FBRemoteConfig
+@implementation FIRRemoteConfig
 @synthesize bridge = _bridge;
 
 RCT_EXPORT_MODULE();
