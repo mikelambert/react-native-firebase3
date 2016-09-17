@@ -9,12 +9,11 @@ import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableMap;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
-public class FIRAnalytics extends ReactContextBaseJavaModule {
-    public Activity activity;
+import javax.annotation.Nullable;
 
-    public FIRAnalytics(ReactApplicationContext reactContext, Activity activity) {
+public class FIRAnalytics extends ReactContextBaseJavaModule {
+    public FIRAnalytics(ReactApplicationContext reactContext) {
         super(reactContext);
-        this.activity = activity;
     }
 
     @Override
@@ -23,34 +22,34 @@ public class FIRAnalytics extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void logEvent(final String name, final ReadableMap parameters) {
-        FirebaseAnalytics.getInstance(activity).logEvent(name, Arguments.toBundle(parameters));
+    public void logEvent(final String name, @Nullable final ReadableMap parameters) {
+        FirebaseAnalytics.getInstance(getCurrentActivity()).logEvent(name, Arguments.toBundle(parameters));
     }
 
     @ReactMethod
     public void setUserId(String id) {
-        FirebaseAnalytics.getInstance(activity).setUserId(id);
+        FirebaseAnalytics.getInstance(getCurrentActivity()).setUserId(id);
     }
 
     @ReactMethod
     public void setUserProperty(String name, String value) {
-        FirebaseAnalytics.getInstance(activity).setUserProperty(name, value);
+        FirebaseAnalytics.getInstance(getCurrentActivity()).setUserProperty(name, value);
     }
 
 
     @ReactMethod
     public void setAnalyticsCollectionEnabled(boolean enabled) {
-        FirebaseAnalytics.getInstance(activity).setAnalyticsCollectionEnabled(enabled);
+        FirebaseAnalytics.getInstance(getCurrentActivity()).setAnalyticsCollectionEnabled(enabled);
     }
 
     @ReactMethod
     public void setMinimumSessionDuration(double seconds) {
-        FirebaseAnalytics.getInstance(activity).setMinimumSessionDuration((long)(seconds * 1000));
+        FirebaseAnalytics.getInstance(getCurrentActivity()).setMinimumSessionDuration((long)(seconds * 1000));
     }
 
     @ReactMethod
     public void setSessionTimeoutDuration(double seconds) {
-        FirebaseAnalytics.getInstance(activity).setSessionTimeoutDuration((long)(seconds * 1000));
+        FirebaseAnalytics.getInstance(getCurrentActivity()).setSessionTimeoutDuration((long)(seconds * 1000));
     }
 
 }

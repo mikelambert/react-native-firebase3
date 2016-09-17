@@ -13,17 +13,12 @@ import java.util.List;
 
 public class FirebasePackage implements ReactPackage {
 
-    private Activity mActivity = null;
-    public FirebasePackage(Activity activity) {
-        mActivity = activity;
-    }
-
     @Override
     public List<NativeModule> createNativeModules(
             ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
-        modules.add(new FIRRemoteConfig(reactContext, mActivity));
-        modules.add(new FIRAnalytics(reactContext, mActivity));
+        modules.add(new FIRRemoteConfig(reactContext));
+        modules.add(new FIRAnalytics(reactContext));
         return modules;
     }
 

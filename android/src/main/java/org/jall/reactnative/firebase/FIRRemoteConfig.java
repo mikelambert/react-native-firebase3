@@ -17,11 +17,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class FIRRemoteConfig extends ReactContextBaseJavaModule {
-    public Activity activity;
-
-    public FIRRemoteConfig(ReactApplicationContext reactContext, Activity activity) {
+    public FIRRemoteConfig(ReactApplicationContext reactContext) {
         super(reactContext);
-        this.activity = activity;
     }
 
     @Override
@@ -30,7 +27,7 @@ public class FIRRemoteConfig extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void setDeveloperMode(boolean enabled) {
+    public void setDeveloperMode(Boolean enabled) {
         FirebaseRemoteConfigSettings configSettings = new FirebaseRemoteConfigSettings.Builder()
                 .setDeveloperModeEnabled(enabled)
                 .build();
@@ -50,8 +47,8 @@ public class FIRRemoteConfig extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void fetchWithExpirationDuration(long cacheExpirationSeconds) {
-        FirebaseRemoteConfig.getInstance().fetch(cacheExpirationSeconds);
+    public void fetchWithExpirationDuration(Double cacheExpirationSeconds) {
+        FirebaseRemoteConfig.getInstance().fetch(cacheExpirationSeconds.longValue());
     }
 
     @ReactMethod

@@ -11,10 +11,10 @@ RCT_EXPORT_MODULE();
     return dispatch_get_main_queue();
 }
 
-RCT_EXPORT_METHOD(setDeveloperMode)
+RCT_EXPORT_METHOD(setDeveloperMode: (BOOL)enabled)
 {
     FIRRemoteConfig *remoteConfig = [FIRRemoteConfig remoteConfig];
-    FIRRemoteConfigSettings *remoteConfigSettings = [[FIRRemoteConfigSettings alloc] initWithDeveloperModeEnabled:YES];
+    FIRRemoteConfigSettings *remoteConfigSettings = [[FIRRemoteConfigSettings alloc] initWithDeveloperModeEnabled:enabled];
     remoteConfig.configSettings = remoteConfigSettings;
 }
 
