@@ -4,6 +4,6 @@
 'use strict';
 
 var { NativeModules } = require('react-native');
-var FBRemoteConfig = NativeModules.FBRemoteConfig;
+var RemoteConfig = NativeModules.RNFIRRemoteConfig;
 
-module.exports = FBRemoteConfig;
+module.exports = RemoteConfig;

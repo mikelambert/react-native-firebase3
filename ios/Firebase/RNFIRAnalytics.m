@@ -1,8 +1,7 @@
-#import "FIRAnalytics.h"
+#import "RNFIRAnalytics.h"
 @import Firebase;
 
-@implementation FIRAnalytics
-@synthesize bridge = _bridge;
+@implementation RNFIRAnalytics
 
 RCT_EXPORT_MODULE();
 
@@ -23,7 +22,7 @@ RCT_EXPORT_METHOD(setUserProperty: (NSString *)name
     [FIRAnalytics setUserPropertyString:value forName:name];
 }
 
-RCT_EXPORT_METHOD(setUserID: (NSString *)userID)
+RCT_EXPORT_METHOD(setUserId: (NSString *)userID)
 {
     [FIRAnalytics setUserID:userID];
 }

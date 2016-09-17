@@ -11,14 +11,14 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 
 import javax.annotation.Nullable;
 
-public class FIRAnalytics extends ReactContextBaseJavaModule {
-    public FIRAnalytics(ReactApplicationContext reactContext) {
+public class RNFIRAnalytics extends ReactContextBaseJavaModule {
+    public RNFIRAnalytics(ReactApplicationContext reactContext) {
         super(reactContext);
     }
 
     @Override
     public String getName() {
-        return "FIRAnalytics";
+        return "RNFIRAnalytics";
     }
 
     @ReactMethod

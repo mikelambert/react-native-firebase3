@@ -1,8 +1,7 @@
-#import "FIRRemoteConfig.h"
+#import "RNFIRRemoteConfig.h"
 @import Firebase;
 
-@implementation FIRRemoteConfig
-@synthesize bridge = _bridge;
+@implementation RNFIRRemoteConfig
 
 RCT_EXPORT_MODULE();
 
@@ -110,7 +109,7 @@ RCT_EXPORT_METHOD(getLong: (NSString *)key
 }
 
 
-RCT_EXPORT_METHOD(getNamedspacedString: (NSString *)key
+RCT_EXPORT_METHOD(getNamespacedString: (NSString *)key
                   withNamespace:(NSString *)namespace
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)

@@ -16,14 +16,14 @@ import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class FIRRemoteConfig extends ReactContextBaseJavaModule {
-    public FIRRemoteConfig(ReactApplicationContext reactContext) {
+public class RNFIRRemoteConfig extends ReactContextBaseJavaModule {
+    public RNFIRRemoteConfig(ReactApplicationContext reactContext) {
         super(reactContext);
     }
 
     @Override
     public String getName() {
-        return "FIRRemoteConfig";
+        return "RNFIRRemoteConfig";
     }
 
     @ReactMethod

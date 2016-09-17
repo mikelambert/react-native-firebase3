@@ -4,13 +4,21 @@
 'use strict';
 
 var { NativeModules } = require('react-native');
-var FBAnalytics = NativeModules.FBAnalytics;
+var Analytics = NativeModules.RNFIRAnalytics;
 
 function setUserProperties(properties) {
   Object.keys(properties).forEach((key) => {
-    FBAnalytics.setUserProperty(key, properties[key]);
+    Analytics.setUserProperty(key, properties[key]);
   });
 }
 
-module.exports = {...FBAnalytics, setUserProperties};
+function logEvent(eventName, params) {
+  Analytics.logEvent(eventName, params);
+}
+
+module.exports = {
+  ...Analytics,
+  setUserProperties,
+  logEvent,
+};
 
