@@ -7,8 +7,13 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableMap;
+import com.facebook.react.bridge.ReadableMapKeySetIterator;
+import com.facebook.react.bridge.ReadableNativeArray;
 import com.facebook.react.bridge.ReadableNativeMap;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class FBRemoteConfig extends ReactContextBaseJavaModule {
     public Activity activity;
@@ -24,7 +29,15 @@ public class FBRemoteConfig extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public boolean activateFetched(Promise promise) {
+    public void setDeveloperMode(boolean enabled) {
+        FirebaseRemoteConfigSettings configSettings = new FirebaseRemoteConfigSettings.Builder()
+                .setDeveloperModeEnabled(enabled)
+                .build();
+        FirebaseRemoteConfig.getInstance().setConfigSettings(configSettings);
+    }
+
+    @ReactMethod
+    public void activateFetched(Promise promise) {
         promise.resolve(
             FirebaseRemoteConfig.getInstance().activateFetched()
         );
@@ -69,28 +82,28 @@ public class FBRemoteConfig extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public boolean getNamespacedLong(String key, String namespace, Promise promise) {
+    public void getNamespacedLong(String key, String namespace, Promise promise) {
         promise.resolve(
             FirebaseRemoteConfig.getInstance().getLong(key, namespace)
         );
     }
 
     @ReactMethod
-    public boolean getLong(String key, Promise promise) {
+    public void getLong(String key, Promise promise) {
         promise.resolve(
             FirebaseRemoteConfig.getInstance().getLong(key)
         );
     }
 
     @ReactMethod
-    public boolean getNamespacedString(String key, String namespace, Promise promise) {
+    public void getNamespacedString(String key, String namespace, Promise promise) {
         promise.resolve(
             FirebaseRemoteConfig.getInstance().getString(key, namespace)
         );
     }
 
     @ReactMethod
-    public boolean getString(String key, Promise promise) {
+    public void getString(String key, Promise promise) {
         promise.resolve(
             FirebaseRemoteConfig.getInstance().getString(key)
         );
