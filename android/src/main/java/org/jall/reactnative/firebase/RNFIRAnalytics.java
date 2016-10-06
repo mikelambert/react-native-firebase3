@@ -23,33 +23,33 @@ public class RNFIRAnalytics extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void logEvent(final String name, @Nullable final ReadableMap parameters) {
-        FirebaseAnalytics.getInstance(getCurrentActivity()).logEvent(name, Arguments.toBundle(parameters));
+        FirebaseAnalytics.getInstance(getReactApplicationContext()).logEvent(name, Arguments.toBundle(parameters));
     }
 
     @ReactMethod
     public void setUserId(String id) {
-        FirebaseAnalytics.getInstance(getCurrentActivity()).setUserId(id);
+        FirebaseAnalytics.getInstance(getReactApplicationContext()).setUserId(id);
     }
 
     @ReactMethod
     public void setUserProperty(String name, String value) {
-        FirebaseAnalytics.getInstance(getCurrentActivity()).setUserProperty(name, value);
+        FirebaseAnalytics.getInstance(getReactApplicationContext()).setUserProperty(name, value);
     }
 
 
     @ReactMethod
     public void setAnalyticsCollectionEnabled(boolean enabled) {
-        FirebaseAnalytics.getInstance(getCurrentActivity()).setAnalyticsCollectionEnabled(enabled);
+        FirebaseAnalytics.getInstance(getReactApplicationContext()).setAnalyticsCollectionEnabled(enabled);
     }
 
     @ReactMethod
     public void setMinimumSessionDuration(double seconds) {
-        FirebaseAnalytics.getInstance(getCurrentActivity()).setMinimumSessionDuration((long)(seconds * 1000));
+        FirebaseAnalytics.getInstance(getReactApplicationContext()).setMinimumSessionDuration((long)(seconds * 1000));
     }
 
     @ReactMethod
     public void setSessionTimeoutDuration(double seconds) {
-        FirebaseAnalytics.getInstance(getCurrentActivity()).setSessionTimeoutDuration((long)(seconds * 1000));
+        FirebaseAnalytics.getInstance(getReactApplicationContext()).setSessionTimeoutDuration((long)(seconds * 1000));
     }
 
 }
