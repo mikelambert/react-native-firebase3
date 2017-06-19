@@ -1,4 +1,7 @@
-# react-native-firebase
+# react-native-firebase3
+
+## Deprecated: Please use https://github.com/invertase/react-native-firebase instead!
+
 
 Firebase3 includes a great JS API. However, it only covers the web-specific features, leaving the others for the Android and iOS specific SDKs. This wraps the relevant Firebase3 mobile SDKs to expose their features via React Native JS.
 
